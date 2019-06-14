@@ -83,7 +83,9 @@ Image::~Image(){
 
 Image& Image ::operator=(const Image& rhs){
     if (this != &rhs)
-        delete image_buf;
+        if (image_buf != nullptr){
+            delete image_buf;
+        }
         image_buf = nullptr;
         width = rhs.width;
         height = rhs.height;
@@ -93,4 +95,8 @@ Image& Image ::operator=(const Image& rhs){
             image_buf[i] = rhs.image_buf[i];
         }
     return *this;
+}
+
+double WReading::get_tempF(){
+    return ((temperature*9)/5) + 32;
 }

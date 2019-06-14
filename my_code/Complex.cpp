@@ -93,8 +93,10 @@ Complex Complex::operator*(const int i) {
 }
 
 bool operator == (const Complex& c1, const Complex& c2){
-    if (c1.get_imag() == c2.get_imag()){
-        if (c1.get_real() == c2.get_real()){
+//    cout << (c1.get_imag() == c2.get_imag());
+    if (c1.get_imag()- c2.get_imag() < 0.0001){
+        cout << "ㅗㅜㅑ" << endl;
+        if (c1.get_real() - c2.get_real() < 0.0001){
             return true;
         }
     }

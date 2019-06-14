@@ -8,7 +8,7 @@ const bool deeznuts = true;
 
 
 int main() {
-    cout << "Input a complex number:\n";
+//    cout << "Input a complex number:\n";
     Complex c1{12, 13};
     // get a complex from stdin:
 //        cin >> c1;
@@ -34,8 +34,10 @@ int main() {
         // see if `Complex` addition works:
         Complex c3 = c1 + c2;
         assert(c3.get_real() > 43.2);
+        cout << c3.get_real() << " " << c3.get_imag() << endl;
         // see if `Complex` subtraction works:
         c3 -= c2;
+        cout << c3.get_real() << " " << c3.get_imag() << endl;
         assert(c3 == c1);
     
         Complex c4 = Complex();
