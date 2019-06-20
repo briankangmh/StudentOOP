@@ -62,6 +62,12 @@ ostream& operator << (ostream& os, const WReading& r){
 
 Image:: Image(int w, int h, string flnm) : width(w), height(h), filename(flnm){}
 
+Gif::Gif(int w, int h, string flnm) : Image( w,  h,  flnm){}
+
+Jpeg::Jpeg(int w, int h, string flnm) : Image( w,  h,  flnm){}
+
+Png::Png(int w, int h, string flnm) : Image( w, h,  flnm){}
+
 int Image::image_sz(){
     return width*height;
 }

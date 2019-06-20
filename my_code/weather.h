@@ -38,6 +38,20 @@ private:
     void copy_fields(const Image& img2);
 };
 
+class Png: public Image{
+public:
+    Png(int w, int h, std::string flnm);
+};
+
+class Jpeg: public Image{
+public:
+    Jpeg(int w, int h, std::string flnm);
+};
+
+class Gif: public Image{
+public:
+    Gif(int w, int h, std::string flnm);
+};
 
 struct GPS {
     double latitude;
@@ -63,10 +77,8 @@ private:
 class WReading {
     friend std::ostream& operator<<(std::ostream& os, const WReading& wr);
 public:
-    WReading(Date dt, double temp, double hum, double ws) :
-    date(dt), temperature(temp), humidity(hum), windspeed(ws)
-    {
-    }
+    WReading(Date dt, double temp, double hum, double ws, Image* img) :
+    date(dt), temperature(temp), humidity(hum), windspeed(ws), img(img){}
     
     double get_tempF();
     double get_tempC() { return temperature; }
@@ -76,6 +88,7 @@ private:
     double temperature;  // stored temp in C
     double humidity;
     double windspeed;
+    Image* img;
 };
 
 
@@ -93,6 +106,9 @@ public:
     int get_rating() const;
     void set_rating(int new_rating);
     void add_reading(WReading wr);
+    void display_images(){
+        
+    }
 private:
     std::vector<WReading> wreadings;
     std::string name;
