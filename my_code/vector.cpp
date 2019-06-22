@@ -27,7 +27,7 @@ MyVec::~MyVec() {
     //delete all elements from array
     //delete actual array
     delete[] data;
-    data = nullptr;
+    //data = nullptr;
 }
 
 MyVec& MyVec::operator=(const MyVec& v2) {
@@ -35,7 +35,11 @@ MyVec& MyVec::operator=(const MyVec& v2) {
     //delete my own data, replace with new data
     if (&v2 != this){
         delete []data;
+        //data = nullptr;
         data = new int[v2.capacity];
+        cout << v2.capacity;
+        capacity = v2.capacity;
+        sz = v2.sz;
         for (int i = 0; i < v2.sz; i++){
             data[i] = v2[i];
         }
@@ -71,11 +75,6 @@ void MyVec::push_back(int val) {
         for (int i = 0; i < capacity; i++){
             old[i] = data[i];
         }
-        for (int i = 0; i < capacity; i++){
-            if (old[i] != data[i]){
-                cout << "uh oh..." << endl;
-            }
-        }
         capacity*=2;
         //delete [] data;
         data = new int[capacity];
@@ -89,7 +88,7 @@ void MyVec::push_back(int val) {
         data[sz] = val;
         sz++;
     }
-    cout << "Val to push: " << val << " Added val: " << data[sz] << " sz: " << sz << endl;
+//    cout << "Val to push: " << val << " Added val: " << data[sz] << " sz: " << sz << endl;
 }
 
 /*
