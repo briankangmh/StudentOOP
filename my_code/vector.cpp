@@ -16,6 +16,7 @@ MyVec::MyVec() : sz(0), capacity(DEF_CAPACITY), data(new int[DEF_CAPACITY]){}
 MyVec::MyVec(const MyVec& v2) {
     sz = v2.sz;
     capacity = v2.capacity;
+    data = new int[capacity];
     for (int i = 0; i < sz; i++){
         data[i] = v2[i];
     }
@@ -66,21 +67,26 @@ bool operator==(MyVec& v1, MyVec& v2) {
 void MyVec::push_back(int val) {
     //if new size exceeds capacity, make new array with double capacity
     if (sz == capacity){
-        int* old = new int[capacity];
+        int* old = new int[capacity];// create a new vector to store previous array
         for (int i = 0; i < capacity; i++){
             old[i] = data[i];
+        }
+        for (int i = 0; i < capacity; i++){
+            if (old[i] != data[i]){
+                cout << "uh oh..." << endl;
+            }
         }
         capacity*=2;
         //delete [] data;
         data = new int[capacity];
-        for (int i = 0; i < sz; i++){
+        for (int i = 0; i < sz; i++){//copy over everything from old to current array
             data[i] = old[i];
         }
-        data[sz+1] = val;
+        data[sz] = val;
         sz++;
     }
     else{
-        data[sz+1] = val;
+        data[sz] = val;
         sz++;
     }
     cout << "Val to push: " << val << " Added val: " << data[sz] << " sz: " << sz << endl;

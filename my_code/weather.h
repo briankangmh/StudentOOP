@@ -20,7 +20,7 @@ public:
      * Setting `display() = 0` here makes this an abstract
      * class that can't be implemented.
      * */
-    std::string display(std::string s);
+    virtual void display();
     /*
      * If we don't want virtual method lookup, we
      * could just declare:
@@ -41,16 +41,19 @@ private:
 class Png: public Image{
 public:
     Png(int w, int h, std::string flnm);
+    void display();
 };
 
 class Jpeg: public Image{
 public:
     Jpeg(int w, int h, std::string flnm);
+    void display();
 };
 
 class Gif: public Image{
 public:
     Gif(int w, int h, std::string flnm);
+    void display();
 };
 
 struct GPS {
@@ -82,6 +85,7 @@ public:
     
     double get_tempF();
     double get_tempC() { return temperature; }
+    void display_image();
     
 private:
     Date date;
@@ -106,9 +110,7 @@ public:
     int get_rating() const;
     void set_rating(int new_rating);
     void add_reading(WReading wr);
-    void display_images(){
-        
-    }
+    void display_images();
 private:
     std::vector<WReading> wreadings;
     std::string name;

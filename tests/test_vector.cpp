@@ -13,9 +13,9 @@ int main() {
     MyVec v = MyVec();
     for (int i = 0; i < 200; i++) {
         v.push_back(i);
-//        copy_vector(v);
+        copy_vector(v);
     }
-//    print_vector(v);
+    print_vector(v);
     assert(v[199] == 199);
     for (int i = 0; i < 200; i++) {
         v[i] *= 2;

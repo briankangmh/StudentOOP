@@ -106,3 +106,29 @@ Image& Image ::operator=(const Image& rhs){
 double WReading::get_tempF(){
     return ((temperature*9)/5) + 32;
 }
+
+void Jpeg::display(){
+    std::cout << "jpeg" << std::endl;
+    }
+
+void Png::display(){
+    std::cout << "png" << std::endl;
+}
+
+void Gif::display(){
+    std::cout << "gif" << std::endl;
+}
+
+void WReading::display_image(){
+    img->display();
+}
+
+void Weather::display_images(){
+    for (int i = 0; i < wreadings.size(); i++){
+        wreadings[i].display_image();
+    }
+}
+
+void Image::display(){
+    cout << "Image" << endl;
+}
