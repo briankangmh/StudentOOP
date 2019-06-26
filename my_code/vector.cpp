@@ -47,6 +47,14 @@ MyVec& MyVec::operator=(const MyVec& v2) {
     return *this;
 }
 
+MyVec::MyVec(int sz, int val){
+    if (sz>=DEF_CAPACITY){capacity = sz*2;} 
+    sz = sz;
+    data = new int[sz];
+    for (int i = 0; i < sz; i++){
+        data[i] = val;
+    }
+}
 
 /*
  * == is true when every element of the vectors are the same in
@@ -106,3 +114,15 @@ int MyVec::operator[](int i) const {
 int& MyVec::operator[](int i) {
     return data[i];
 }
+
+
+MyVec::Iterator MyVec::begin () const{
+    return Iterator(data);
+}
+
+MyVec::Iterator MyVec::end () const{
+    return Iterator(data+sz);
+}
+
+//return type classname::method name()
+

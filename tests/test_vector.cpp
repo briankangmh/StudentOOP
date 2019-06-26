@@ -15,8 +15,6 @@ int main() {
         v.push_back(i);
         copy_vector(v);
     }
-    cout << " V: " << endl;
-    print_vector(v);
     assert(v[199] == 199);
     for (int i = 0; i < 200; i++) {
         v[i] *= 2;
@@ -29,14 +27,19 @@ int main() {
     assert(v3[1] == 18);
     
     MyVec v2 = v;
-    cout << " V2: " << endl;
     print_vector(v2);
     assert(v2 == v);
     
     v2 = v3;
-    cout << " V3: " << endl;
-    print_vector(v3);
-    cout << " V2: " << endl;
     print_vector(v2);
     assert(v2 == v3);
+    
+    for (int i : v3) {
+        assert((i % 9) == 0);
+    }
+    
+    MyVec v4 = MyVec(10, 20);
+    for (int i : v4) {
+        assert(i == 20);
+    }
 }
