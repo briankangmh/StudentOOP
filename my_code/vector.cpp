@@ -5,7 +5,7 @@ using namespace std;
 
 void print_vector(const MyVec& v) {
     for (int i = 0; i < v.size(); i++){
-        cout << v[i] << endl;
+        cout << v[i] << " ";
     }
     cout << endl;
 }
@@ -47,10 +47,10 @@ MyVec& MyVec::operator=(const MyVec& v2) {
     return *this;
 }
 
-MyVec::MyVec(int sz, int val){
-    if (sz>=DEF_CAPACITY){capacity = sz*2;} 
-    sz = sz;
+MyVec::MyVec(int sze, int val){
+    if (sz>=DEF_CAPACITY){capacity = sz*2;}
     data = new int[sz];
+    sz = sze;
     for (int i = 0; i < sz; i++){
         data[i] = val;
     }

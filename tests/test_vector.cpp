@@ -39,6 +39,7 @@ int main() {
     }
     
     MyVec v4 = MyVec(10, 20);
+
     for (int i : v4) {
         assert(i == 20);
     }
